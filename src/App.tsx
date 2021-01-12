@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import { Card, CardGrid, Container, Header } from './styles/primitives';
 import './App.css';
@@ -18,19 +19,70 @@ function App() {
       <Container>
         <h2>Super Cool</h2>
         <CardGrid>
-          <Card style={{ background: 'var(--purp)' }}>
+          <Card initial={{
+            opacity: 0,
+            rotateZ: 45,
+          }}
+            animate={{
+              rotateZ: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1,
+            }}
+            style={{ background: 'var(--purp)' }}
+          >
             <h3>Some card</h3>
             <img src={purp} alt="Card" />
           </Card>
-          <Card style={{ background: 'var(--blue)' }}>
+          <Card initial={{
+            opacity: 0,
+            rotateZ: 45,
+          }}
+            animate={{
+              rotateZ: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1,
+              delay: 1,
+            }}
+            style={{ background: 'var(--blue)' }}
+          >
             <h3>Some card</h3>
             <img src={blue} alt="Card" />
           </Card>
-          <Card style={{ background: 'var(--black)' }}>
+          <Card initial={{
+            opacity: 0,
+            rotateZ: 45,
+          }}
+            animate={{
+              rotateZ: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1,
+              delay: 2,
+            }}
+            style={{ background: 'var(--black)' }}
+          >
             <h3>Some card</h3>
             <img src={black} alt="Card" />
           </Card>
-          <Card style={{ background: 'var(--green)' }}>
+          <Card initial={{
+            opacity: 0,
+            rotateZ: 45,
+          }}
+            animate={{
+              rotateZ: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1,
+              delay: 3,
+            }}
+            style={{ background: 'var(--green)' }}
+          >
             <h3>Some card</h3>
             <img src={green} alt="Card" />
           </Card>
