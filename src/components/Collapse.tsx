@@ -2,6 +2,11 @@ import React, { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion';
 
+const variants = {
+  open: { opacity: 1, height: 'auto' },
+  close: { opacity: 0, height: 0 },
+};
+
 interface Props {
   className?: string;
   title: string;
@@ -18,18 +23,10 @@ const Collapse = (props: Props) => {
       <AnimatePresence>
         {open && (
           <Content
-            initial={{
-              opacity: 0,
-              height: 0,
-            }}
-            animate={{
-              opacity: 1,
-              height: 'auto',
-            }}
-            exit={{
-              opacity: 0,
-              height: 0,
-            }}
+            variants={variants}
+            initial="close"
+            animate="open"
+            exit="close"
           >
             <p>
               {children}
