@@ -29,7 +29,7 @@ export const CardGrid = styled.div`
   grid-gap: 20px;
 `;
 
-export const Card = styled(motion.div)`
+export const Card = styled.div`
   border-radius: 15px;
   padding: 20px;
   color: white;
