@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { Card, CardGrid, Container, Header } from './styles/primitives';
@@ -10,6 +10,9 @@ import green from './assets/images/green.png';
 import { MenuIcon } from './assets/icons';
 
 function App() {
+  const [showHeader, setShowHeader] = useState(true);
+  const [headerX, setHeaderX] = useState(0);
+
   return (
     <div>
       <Header>
@@ -17,7 +20,25 @@ function App() {
         <h1>Header</h1>
       </Header>
       <Container>
-        <h2>Super Cool</h2>
+        <div>
+          <button onClick={() => setShowHeader(show => !show)}>Toggle header</button>
+        </div>
+        <div>
+          <input
+            type="range"
+            name="headerX"
+            min="-100"
+            max="100"
+            value={headerX}
+            onChange={(e: SyntheticEvent<HTMLInputElement>) => setHeaderX(e.currentTarget.valueAsNumber)}
+          />
+        </div>
+        <motion.h2
+          animate={{
+            x: headerX,
+            opacity: showHeader ? 1 : 0,
+          }}
+        >Super Cool</motion.h2>
         <CardGrid>
           <Card initial={{
             opacity: 0,
