@@ -9,16 +9,19 @@ import green from './assets/images/green.png';
 import { MenuIcon } from './assets/icons';
 import Modal from './components/Modal';
 import Collapse from './components/Collapse';
+import Nav from './components/Nav';
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <div>
       <Header>
-        <MenuIcon />
+        <MenuIcon onClick={() => setOpenMenu(true)} />
         <h1>Header</h1>
       </Header>
+      <Nav open={openMenu} onClose={() => setOpenMenu(false)} />
       <Container>
         <div>
           <button onClick={() => setOpenModal(true)}>Show modal</button>
@@ -32,9 +35,9 @@ function App() {
         </Modal>
         <CardGrid>
           <Collapse title="Collapse text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-            Architecto facilis asperiores cum, commodi fugiat, 
-            rerum dignissimos nobis eius aliquid eaque, provident ipsa dolores laborum eligendi. 
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Architecto facilis asperiores cum, commodi fugiat,
+            rerum dignissimos nobis eius aliquid eaque, provident ipsa dolores laborum eligendi.
             A mollitia architecto velit quos.
           </Collapse>
           <Card style={{ background: 'var(--purp)' }}>
