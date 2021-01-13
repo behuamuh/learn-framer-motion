@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useMotionValue, useTransform } from 'framer-motion';
 
 import { Card, CardGrid, Container, Header } from './styles/primitives';
 import './App.css';
@@ -11,13 +10,11 @@ import { MenuIcon } from './assets/icons';
 import Modal from './components/Modal';
 import Collapse from './components/Collapse';
 import Nav from './components/Nav';
+import HideableCard from './components/HideableCard';
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-
-  const x = useMotionValue(0);
-  const opacity = useTransform(x, [-100, 0, 100], [0.5, 1, 0.5]);
 
   return (
     <div>
@@ -44,17 +41,11 @@ function App() {
             rerum dignissimos nobis eius aliquid eaque, provident ipsa dolores laborum eligendi.
             A mollitia architecto velit quos.
           </Collapse>
-          <Card 
-            drag="x" 
-            dragConstraints={{ left: 0, right: 0 }} 
-            style={{
-              x,
-              background: 'var(--blue)',
-              opacity,
-            }}>
-            <h3>Some card</h3>
-            <img src={purp} alt="Card" />
-          </Card>
+          <HideableCard 
+            title="Some hideable card"
+            image={purp}
+            style={{ background: 'var(--purp)' }}
+          />
           <Card
             whileHover={{
               scale: [1, 0.8, 1.2],
