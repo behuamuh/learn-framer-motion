@@ -11,6 +11,7 @@ import Modal from './components/Modal';
 import Collapse from './components/Collapse';
 import Nav from './components/Nav';
 import HideableCard from './components/HideableCard';
+import ColorsList from './components/ColorsList';
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
@@ -34,6 +35,7 @@ function App() {
             <img src={purp} alt="Card" />
           </Card>
         </Modal>
+        <ColorsList />
         <CardGrid>
           <Collapse title="Collapse text">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
