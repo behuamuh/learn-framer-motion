@@ -40,7 +40,16 @@ function App() {
             rerum dignissimos nobis eius aliquid eaque, provident ipsa dolores laborum eligendi.
             A mollitia architecto velit quos.
           </Collapse>
-          <Card style={{ background: 'var(--purp)' }}>
+          <Card
+            whileHover={{
+              scale: [1, 0.8, 1.2],
+            }}
+            whileTap={{
+              background: 'var(--red)',
+            }}
+            onHoverEnd={(...args) => console.log(args)}
+            style={{ background: 'var(--purp)' }}
+          >
             <h3>Some card</h3>
             <img src={purp} alt="Card" />
           </Card>
