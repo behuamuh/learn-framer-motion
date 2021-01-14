@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Switch, Route, NavLink } from 'react-router-dom';
 
 import { Card, CardGrid, Container, Header } from './styles/primitives';
 import './App.css';
@@ -13,6 +14,9 @@ import Nav from './components/Nav';
 import HideableCard from './components/HideableCard';
 import ColorsList from './components/ColorsList';
 import ImageSlider from './components/ImageSlider';
+import HomePage from './pages/HomePage';
+import CardsPage from './pages/CardsPage';
+import styled from 'styled-components';
 
 const images = [blue, purp, black, green];
 
@@ -25,9 +29,17 @@ function App() {
       <Header>
         <MenuIcon onClick={() => setOpenMenu(true)} />
         <h1>Header</h1>
+        <Links>
+          <StyledLink exact activeClassName="active" to="/">Home</StyledLink>
+          <StyledLink exact activeClassName="active" to="/cards">Cards</StyledLink>
+        </Links>
       </Header>
       <Nav open={openMenu} onClose={() => setOpenMenu(false)} />
       <Container>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/cards" component={CardsPage} />
+        </Switch>
         <div>
           <button onClick={() => setOpenModal(true)}>Show modal</button>
         </div>
@@ -47,7 +59,7 @@ function App() {
             rerum dignissimos nobis eius aliquid eaque, provident ipsa dolores laborum eligendi.
             A mollitia architecto velit quos.
           </Collapse>
-          <HideableCard 
+          <HideableCard
             title="Some hideable card"
             image={purp}
             style={{ background: 'var(--purp)' }}
@@ -80,3 +92,17 @@ function App() {
 }
 
 export default App;
+
+const StyledLink = styled(NavLink)`
+  color: white;
+  font-size: 1rem;
+  margin: 0 1rem;
+
+  &.active {
+    font-weight: bold;
+  }
+`;
+
+const Links = styled.div`
+  margin-left: auto;
+`;
