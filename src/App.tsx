@@ -12,6 +12,9 @@ import Collapse from './components/Collapse';
 import Nav from './components/Nav';
 import HideableCard from './components/HideableCard';
 import ColorsList from './components/ColorsList';
+import ImageSlider from './components/ImageSlider';
+
+const images = [blue, purp, black, green];
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
@@ -35,6 +38,7 @@ function App() {
             <img src={purp} alt="Card" />
           </Card>
         </Modal>
+        <ImageSlider images={images} />
         <ColorsList />
         <CardGrid>
           <Collapse title="Collapse text">
