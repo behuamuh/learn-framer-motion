@@ -1,7 +1,6 @@
 import { AnimatePresence, motion, PanInfo, useMotionValue, useTransform } from 'framer-motion';
 import React, { CSSProperties, useState } from 'react';
-
-import { Card } from '../styles/primitives';
+import { Card } from 'styles/primitives';
 
 interface Props {
   style?: CSSProperties;
